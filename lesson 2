@@ -1,32 +1,33 @@
-<?
+<?php
 header('Content-type: text/html; charset=utf-8');
-$date = array(rand(1,time()), //создем массив date с юниксовыми метками
-    rand(1,time()),
-    rand(1,time()),
-    rand(1,time()),
-    rand(1,time())
-    );
-echo "Наименьший день ".min(date('d', $date[0]),
-    date('d', $date[1]),
-    date('d', $date[2]),
-    date('d', $date[3]),
-    date('d', $date[4])
-    )."<br/>"; // опредлеляем и выводим наиемньший день
-echo "Наибольший месяц ".max(date('m', $date[0]),
-    date('m', $date[1]),
-    date('m', $date[2]),
-    date('m', $date[3]),
-    date('m', $date[4])
-    )."<br/>"; // опредлеляем и выводим наибольший Месяц
-    sort($date);
-    print_r($date);
-    echo "<br/>";
-    $selected = array_slice($date, -1, 1);
-    echo $selected.  date(' d.m.Y, H:i:s'), "<br/>";
-    
-    echo date_default_timezone_set('America/New_York');
-    echo date_default_timezone_get();
-    
-    
-    
-    ?>
+
+header('Content-type: text/html; charset=utf-8');
+$name = 'Руслан';
+$age = '23';
+echo "Меня зовут ".$name."";
+echo '<br><br>';
+echo "Мне ".$age."";
+
+
+// константа
+echo '<br><br>';
+const CONSTANT = 'Ижевск';
+echo CONSTANT;
+
+// ассоциативный массив
+$book = array(
+    'title'=>'По ком звонит колокол',
+    'author'=>'Эрнест Хемингуэй',
+    'pages'=>'650'
+);
+echo '<br><br>';
+echo '"Недавно я прочитал книгу \''.$book['title'].'\', написанную автором '.$book['author'].', я осилил все '.$book['pages'].' страниц, мне она очень понравилась"';
+
+// индексный массив
+ $book1 = array('title1'=>'По ком звонит колокол', 'author1'=>'Эрнест Хемингуэй', 'pages1'=>'650');
+ $book2 = array('title2'=>'Дорога', 'author2'=>'Кормак Маккарти', 'pages2'=>'475');
+$books = array($book1,$book2);
+$total_pages = $books['0']['pages1']+$books['1']['pages2'];
+echo '<br><br>';
+echo '"Недавно я прочитал книги \''.$books['0']['title1'].'\' и \''.$books['1']['title2'].'\', написанные соответственно авторами '.$books['0']['author1'].' и '.$books['1']['author2'].', я осилил в сумме '.$total_pages.' страниц, не ожидал от себя подобного"';
+?>
